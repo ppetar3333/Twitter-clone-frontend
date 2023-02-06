@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  padding: 15px 20px;
+  background: #1da1f2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.header,
+.header__wrapper,
+.header__content {
+  display: flex;
+  width: 100%;
+}
+
+.header__content {
+  text-align: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  width: 50px;
+}
+
+.header__logo-wrapper {
+  cursor: pointer;
+}

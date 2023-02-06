@@ -1,0 +1,45 @@
+.search__form {
+  width: 290px;
+  margin-bottom: -22px;
+}
+
+.search__result {
+  border-radius: 5px;
+  border: 0.5px solid rgb(29, 29, 29);
+  background: rgb(12, 12, 12);
+}
+
+.search__result-wrapper {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+  padding: 12px 10px;
+  border-radius: 5px;
+}
+
+.search__result-wrapper:hover {
+  background: rgb(70, 69, 69);
+  transition: 0.2s all ease-in-out;
+}
+
+.search__avatar-img {
+  width: 30px;
+}
+
+.search__user-info {
+  display: block;
+  margin-left: 8px;
+  color: white;
+}
+
+.search__username {
+  font-size: 12px;
+  display: block;
+}
+
+.search__name {
+  font-weight: 500;
+  font-size: 14px;
+}

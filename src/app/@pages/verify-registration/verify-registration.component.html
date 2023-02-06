@@ -1,0 +1,73 @@
+<div class="verify" [ngClass]="{'fade-in' : isLoading}">
+    <div class="verify__wrapper">
+        <div class="verify__logo-wrapper">
+            <div class="verify__logo">
+                <img class="verify__logo-img" src="../../../assets/images/background-login.png" alt="">
+                <div class="verify__logo-absolute">
+                    <img class="verify__logo-absolute-img" src="../../../assets/images/icons8-twitter-500.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="verify__content-wrapper">
+            <div class="verify__form-wrapper">
+                <div class="verify__form">
+                    <div class="verify__content-logo">
+                        <img class="verify__content-logo-img" src="../../../assets/logo/twitter-logo.png" alt="">
+                    </div>
+                    <div class="verify__heading-wrapper">
+                        <h3 class="verify__heading">Happening now</h3>
+                    </div>
+                    <div class="verify__info-wrapper">
+                        <h5 class="verify__info">Join Twitter Today.</h5>
+                    </div>
+                    <div class="verify__data">
+                        <div class="verify__input">
+                            <mat-twitter-input
+                                [label]="'Username'"
+                                [placeholder]="'Username'"
+                                [input]="true"
+                                (valueChange)="getUsername($event)"
+                                [required]="true"
+                                [textarea]="false">
+                            </mat-twitter-input>
+                        </div>
+                        <div class="verify__input">
+                            <mat-twitter-input
+                                [label]="'Password'"
+                                [placeholder]="'Password'"
+                                [input]="true"
+                                [required]="true"
+                                (valueChange)="getPassword($event)"
+                                [type]="'password'"
+                                [textarea]="false">
+                            </mat-twitter-input>
+                        </div>
+                        <div class="verify__input">
+                            <mat-twitter-input
+                                [label]="'Verification Code'"
+                                [placeholder]="'Verification Code'"
+                                [input]="false"
+                                [numberType]="true"
+                                (valueChange)="getVerificationCode($event)"
+                                [required]="true"
+                                [textarea]="false">
+                            </mat-twitter-input>
+                        </div>
+                        <div class="verify__btn-wrapper">
+                            <button class="verify__btn" (click)="checkVerificationCode()"  [disabled]="!enableSave()" [ngClass]="{ 'disabled-btn' : !enableSave()}">Verify</button>
+                        </div>
+                    </div>
+                    <div class="verify__register">
+                        <div class="verify__reigster-wrapper">
+                            <div class="verify__register-info-wrapper">
+                                <p class="verify__register-info">Your profile is verified?</p>
+                            </div>
+                            <button class="verify__register-btn" type="button" (click)="redirectToLogin()">Sign in</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <twitter-toast-bar [message]="error.getValue()" [status]="'failure'" [duration]="1" *ngIf="error.getValue()"></twitter-toast-bar>
+</div>

@@ -1,0 +1,127 @@
+@import "../../../../sources/abstract/mixins";
+
+.dialog-message__btn {
+  background: #1da1f2;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid white;
+  padding: 5px 30px;
+  font-weight: bold;
+  transition: 0.2s all ease-in-out;
+}
+
+.dialog-message__btn:hover {
+  background: white;
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+  font-weight: bold;
+  transition: 0.2s all ease-in-out;
+}
+
+.dialog-message__btn-wrapper {
+  text-align: right;
+}
+
+::ng-deep .mat-dialog-container {
+  background-color: black !important;
+  border: 1px solid white;
+  width: 650px !important;
+  max-width: 80%;
+}
+
+.dialog-message__body {
+  padding: 20px 0;
+  color: white;
+  display: flex;
+  width: 100%;
+}
+
+.dialog-message__title {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+.dialog-message__title-wrapper {
+  @include center-space-between;
+}
+
+.dialog-message__logo {
+  width: 50px;
+}
+
+.retweet__user-wrapper {
+  display: flex;
+}
+
+.retweet__avatar {
+  margin-right: 10px;
+}
+
+.retweet__avatar-img {
+  width: 40px;
+  border-radius: 100px;
+}
+
+.retweet__username {
+  text-align: left;
+  color: gray;
+  font-size: 14px;
+  display: block;
+}
+
+.retweet {
+  width: 100%;
+}
+
+.retweet__wrapper {
+  border: 1px solid rgb(60, 60, 60);
+  border-radius: 4px;
+  background: black;
+  margin: 30px 0;
+  width: 100%;
+  width: 550px !important;
+}
+
+.retweet__container {
+  margin: 25px 30px 25px 30px;
+}
+
+.retweet__user {
+  display: flex;
+}
+
+.retweet__name {
+  color: white !important;
+  font-weight: bold !important;
+  letter-spacing: 1px;
+}
+
+.retweet__content-wrapper {
+  padding-top: 15px;
+}
+
+.retweet__btn {
+  padding: 7px 15px;
+  border-radius: 8px;
+  background: #1da1f2;
+  color: white;
+  letter-spacing: 1px;
+  transition: 0.2s all ease-in-out;
+  font-weight: 500;
+}
+
+.retweet__actions-wrapper {
+  text-align: right;
+}
+
+.disabled-btn {
+  pointer-events: none;
+  opacity: 0.5;
+  transition: 0.2s all ease-in-out;
+}
+
+.margin-top {
+  margin-top: 10px;
+}

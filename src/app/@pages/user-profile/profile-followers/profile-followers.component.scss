@@ -1,0 +1,76 @@
+@import "../../../../sources/abstract/mixins";
+
+.dialog-message__btn {
+  background: #1da1f2;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid white;
+  padding: 5px 30px;
+  font-weight: bold;
+  transition: 0.2s all ease-in-out;
+}
+
+.dialog-message__btn:hover {
+  background: white;
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+  font-weight: bold;
+  transition: 0.2s all ease-in-out;
+}
+
+.dialog-message__btn-wrapper {
+  text-align: right;
+}
+
+::ng-deep .mat-dialog-container {
+  background-color: black !important;
+  border: 1px solid white;
+  width: 420px;
+  max-width: 80%;
+}
+
+.dialog-message__body {
+  padding: 20px 0;
+  color: white;
+  display: flex;
+  width: 100%;
+}
+
+.dialog-message__title {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+.dialog-message__title-wrapper {
+  @include center-space-between;
+}
+
+.dialog-message__logo {
+  width: 50px;
+}
+
+.dialog-message__avatar {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.dialog-message__text {
+  margin-bottom: 0;
+}
+
+.dialog-message__text:last-child {
+  color: gray;
+}
+
+.dialog-message__text:first-child {
+  color: white;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.dialog-message__no-data {
+  margin: 50px 0;
+}

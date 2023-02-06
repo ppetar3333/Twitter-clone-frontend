@@ -1,0 +1,98 @@
+@import "../../../sources/abstract/mixins";
+
+.user-profile__wrapper {
+  @include center-grid;
+
+  margin-top: 150px;
+  padding-bottom: 150px;
+}
+
+.user-profile__container,
+.user-profile__wrapper,
+.user-profile {
+  height: 100%;
+}
+
+.user-profile__avatar-img {
+  width: 100px;
+}
+
+.user-profile__avatar-wrapper {
+  @include center-grid;
+
+  border-left: 1px solid rgb(41, 41, 41);
+  border-right: 1px solid rgb(41, 41, 41);
+
+  background: rgb(15, 15, 15);
+  width: 70%;
+  height: 145px;
+  border-radius: 1px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+.user-profile__follow-wrapper {
+  float: right;
+  margin-top: 40px;
+}
+
+.user-profile__avatar-img-wrapper {
+  width: 90%;
+  margin-top: 80px;
+}
+
+.user-profile__content-wrapper {
+  @include center-grid;
+
+  text-align: center;
+  width: 70%;
+  border-left: 1px solid rgb(41, 41, 41);
+  border-right: 1px solid rgb(41, 41, 41);
+}
+
+.user-profile__heading {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 40px 0 20px 0;
+  letter-spacing: 2px;
+}
+
+.user-profile__spinner {
+  @include center-absolute;
+  top: 150px;
+}
+
+.user-profile-btn {
+  padding: 10px 25px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  background: #1da1f2;
+  letter-spacing: 2px;
+  border: 1px solid #1da1f2;
+  margin-top: 8px;
+  font-weight: bold;
+  transition: 0.3s all ease-in-out;
+}
+
+.user-profile-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s all ease-in-out;
+}
+
+.disabled-btn {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.user-profile__private-wrapper {
+  margin-top: 100px;
+}
+
+.user-profile__private {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}

@@ -1,0 +1,43 @@
+.mat-input-element {
+  caret-color: blue !important;
+}
+
+.form-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-full-width {
+  width: 100%;
+  max-width: 500px;
+}
+
+.form {
+  margin: 10px 0;
+  font-size: 15px !important;
+}
+
+// ::ng-deep .mat-form-field-flex {
+//   border: 0.2px solid rgb(95, 94, 94) !important;
+// }
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #1da1f2 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: #1da1f2 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: #1da1f2 !important;
+}
+
+::ng-deep .not-empty-select.mat-selected {
+  background-color: #1da1f2 !important;
+}
+
+::ng-deep .mat-select-arrow {
+  color: #1da1f2;
+}

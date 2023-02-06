@@ -1,0 +1,47 @@
+<div class="">
+    <div class="">
+      <div class="d-flex align-items-center">
+        <label class="form-label" for="user_type">{{ label }}</label>
+        <div class="ms-auto" *ngIf="optional">
+          <span class="text-sm text-muted">
+            Optional
+          </span>
+        </div>
+      </div>
+      <div
+        class="input-group position-relative"
+        [ngClass]="{ 'border border-danger border-radius__custom': errorState }"
+      >
+        <span *ngIf="prefix" class="input-group-text" id="">{{ prefix }}</span>
+        <input
+          [type]="type"
+          [autocomplete]="autocomplete"
+          [required]="required"
+          [disabled]="disabled"
+          [(ngModel)]="model"
+          [value]="value"
+          [placeholder]="placeholder"
+          (keyup)="onUserInput($event)"
+          class="form-control"
+          id="user_type"
+        />
+        <div *ngIf="sufixIcon" class="input-group-append">
+          <span class="input-group-text no-border" id="">
+            <i class="{{ sufixIcon }}"></i>
+          </span>
+        </div>
+        <span *ngIf="sufix" class="input-group-text" id="">{{ sufix }}</span>
+      </div>
+    </div>
+    <div class="col-md-12" *ngIf="errorState">
+      <div class="alert alert-danger mt-2" role="alert">
+        <div *ngIf="customErrorMessage">
+          {{ customErrorMessage }}
+        </div>
+        <div *ngIf="!customErrorMessage">
+          {{ customError }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

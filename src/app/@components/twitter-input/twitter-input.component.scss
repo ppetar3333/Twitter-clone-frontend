@@ -1,0 +1,10 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.border-radius__custom {
+  border-radius: 8px;
+}
+
+.no-border {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}

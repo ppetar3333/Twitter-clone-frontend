@@ -1,0 +1,27 @@
+<div class="dialog-message">
+    <div class="dialog-message__title-wrapper">
+        <h1 class="dialog-message__title" mat-dialog-title>{{ title }}</h1>
+        <img class="dialog-message__logo" src="../../../assets/logo/twitter-logo.png" alt="">
+    </div>
+    <div class="dialog-message__body-wrapper" mat-dialog-content>
+        <ng-container *ngIf="body">
+            <div class="dialog-message__body" *ngFor="let data of usersLiked">
+                <img class="dialog-message__avatar" src="../../../../assets/images/avatar.png" alt="">
+                <div class="dialog-message__info" (click)="goToUserProfile(data.id)" style="cursor: pointer;">
+                    <p class="dialog-message__text">{{ data.name }}</p>
+                    <p class="dialog-message__text">{{ data.username }}</p>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!body">
+            <div class="dialog-message__body">
+                <div class="dialog-message__info">
+                    <p class="">No likes provided yet, be the first one!</p>
+                </div>
+            </div>
+        </ng-container>
+        <div class="dialog-message__btn-wrapper">
+            <button class="dialog-message__btn" type="button" (click)="closeDialog()">{{ button }}</button>
+        </div>
+    </div>
+</div>

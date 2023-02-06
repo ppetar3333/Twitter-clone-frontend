@@ -1,0 +1,48 @@
+@import "../../../sources/abstract/mixins";
+
+.dialog-message__btn {
+  background: #1da1f2;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid white;
+  padding: 5px 30px;
+  font-weight: bold;
+  transition: 0.2s all ease-in-out;
+}
+
+.dialog-message__btn:hover {
+  background: white;
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+  font-weight: bold;
+  transition: 0.2s all ease-in-out;
+}
+
+.dialog-message__btn-wrapper {
+  text-align: right;
+}
+
+::ng-deep .mat-dialog-container {
+  background-color: black !important;
+  border: 1px solid white;
+  width: 500px;
+  max-width: 80%;
+}
+
+.dialog-message__body {
+  padding: 20px 0;
+}
+
+.dialog-message__title {
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.dialog-message__title-wrapper {
+  @include center-space-between;
+}
+
+.dialog-message__logo {
+  width: 50px;
+}

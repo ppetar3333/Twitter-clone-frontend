@@ -1,0 +1,47 @@
+<div class="dialog-message">
+    <div class="dialog-message__title-wrapper">
+        <h1 class="dialog-message__title" mat-dialog-title>Retweet</h1>
+        <img class="dialog-message__logo" src="../../../assets/logo/twitter-logo.png" alt="">
+    </div>
+    <div class="dialog-message__body-wrapper" mat-dialog-content>
+        <div class="dialog-message__body" >
+            <div class="retweet__wrapper">
+                <div class="retweet__container">
+                    <div class="retweet__user-wrapper">
+                        <div class="retweet__user">
+                            <span class="retweet__avatar">
+                                <img class="retweet__avatar-img" src="../../../assets/images/avatar.png" alt="Avatar Image" />
+                            </span>
+                            <div class="retweet__user-info">
+                                <span class="retweet__name" *ngIf="firstname && lastname">
+                                    {{ firstname }} {{ lastname }}
+                                </span>
+                                <span class="retweet__name" *ngIf="company">
+                                    {{ company }}
+                                </span>
+                                <span class="retweet__username">
+                                    {{ username }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="retweet__content-wrapper">
+                        <mat-twitter-input
+                            [label]="'Retweet Description'"
+                            [textarea]="true"
+                            [input]="false"
+                            [placeholder]="'What is happening?'"
+                            (valueChange)="getTweetDesc($event)">
+                        </mat-twitter-input>
+                        <div class="retweet__actions-wrapper">
+                            <button class="retweet__btn" type="button" (click)="retweet()" [disabled]="!enableSave()" [ngClass]="{ 'disabled-btn' : !enableSave()}">Retweet</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-message__btn-wrapper">
+            <button class="dialog-message__btn" type="button" (click)="closeDialog(false)">Close</button>
+        </div>
+    </div>
+</div>

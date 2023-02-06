@@ -1,0 +1,188 @@
+<div class="registration" [ngClass]="{'fade-in' : isLoading}">
+    <div class="registration__wrapper">
+        <div class="registration__logo-wrapper">
+            <div class="registration__logo">
+                <img class="registration__logo-img" src="../../../assets/images/background-login.png" alt="">
+                <div class="registration__logo-absolute">
+                    <img class="registration__logo-absolute-img" src="../../../assets/images/icons8-twitter-500.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="registration__content-wrapper">
+            <div class="registration__form-wrapper">
+                <div class="registration__form">
+                    <div class="registration__content-logo">
+                        <img class="registration__content-logo-img" src="../../../assets/logo/twitter-logo.png" alt="">
+                    </div>
+                    <div class="registration__heading-wrapper">
+                        <h3 class="registration__heading">Happening now</h3>
+                    </div>
+                    <div class="registration__info-wrapper">
+                        <h5 class="registration__info">Join Twitter Today.</h5>
+                    </div>
+                    <div class="registration__data">
+                        <div class="" *ngIf="!businessAcc">
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Username'"
+                                    [placeholder]="'Username'"
+                                    [input]="true"
+                                    [required]="true"
+                                    (valueChange)="getUsername($event)"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Password'"
+                                    [placeholder]="'Password'"
+                                    [input]="true"
+                                    [required]="true"
+                                    [type]="'password'"
+                                    (valueChange)="getPassword($event)"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Email'"
+                                    [placeholder]="'email@gmail.com'"
+                                    [input]="true"
+                                    [required]="true"
+                                    (valueChange)="getEmail($event)"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Name'"
+                                    [placeholder]="'Name'"
+                                    [required]="true"
+                                    [onlyLetter]="true"
+                                    (valueChange)="getName($event)">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Surname'"
+                                    [placeholder]="'Surname'"
+                                    [onlyLetter]="true"
+                                    (valueChange)="getSurname($event)"
+                                    [required]="true">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Gender'"
+                                    [input]="false"
+                                    [dropdown]="true"
+                                    [dropdownItems]="gendersList"
+                                    (valueChange)="getGender($event)"
+                                    [required]="true"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Age'"
+                                    [placeholder]="'Age'"
+                                    [input]="false"
+                                    [numberType]="true"
+                                    (valueChange)="getAge($event)"
+                                    [required]="true"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'City'"
+                                    [placeholder]="'City'"
+                                    (valueChange)="getCity($event)"
+                                    [onlyLetter]="true"
+                                    [required]="true"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                        </div>
+                        <div class="" *ngIf="businessAcc">
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Username'"
+                                    [placeholder]="'Username'"
+                                    [input]="true"
+                                    [required]="true"
+                                    (valueChange)="getUsername($event)"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Password'"
+                                    [placeholder]="'Password'"
+                                    [input]="true"
+                                    [required]="true"
+                                    [type]="'password'"
+                                    (valueChange)="getPassword($event)"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Email'"
+                                    [placeholder]="'email@gmail.com'"
+                                    [input]="true"
+                                    [required]="true"
+                                    (valueChange)="getEmail($event)"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Company Name'"
+                                    [placeholder]="'Company Name'"
+                                    [input]="true"
+                                    [required]="true"
+                                    (valueChange)="getCompanyName($event)"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                            <div class="registration__input">
+                                <mat-twitter-input
+                                    [label]="'Website'"
+                                    [placeholder]="'www.website.com'"
+                                    [input]="true"
+                                    [required]="true"
+                                    (valueChange)="getWebsite($event)"
+                                    [textarea]="false">
+                                </mat-twitter-input>
+                            </div>
+                        </div>
+                        <div class="registration__btn-wrapper">
+                            <div>
+                                <ngx-recaptcha2 #captchaElem
+                                    [siteKey]="'6LfymmQjAAAAAGWS_Xj2pOVUBAxbHTQJff_mgkru'"
+                                    (success)="handleSuccess($event)"
+                                    [useGlobalDomain]="false"
+                                    [theme]="'dark'"
+                                    [hl]="'en'">
+                                </ngx-recaptcha2>
+                            </div>
+                            <button class="registration__btn" (click)="register()" [disabled]="!enableSave()" [ngClass]="{ 'disabled-btn' : !enableSave()}">Sign up</button>
+                            <p class="registration__switch-acc" (click)="switchAccounts()" *ngIf="!businessAcc">Sign up as business account?</p>
+                            <p class="registration__switch-acc-spec" (click)="switchAccounts()" *ngIf="businessAcc">Sign up as regular account?</p>
+                        </div>
+                        <div class="registration__register">
+                            <div class="registration__reigster-wrapper">
+                                <div class="registration__register-info-wrapper">
+                                    <p class="registration__register-info">Already have account?</p>
+                                </div>
+                                <button class="registration__register-btn" type="button" (click)="redirectToLogin()">Sign in</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <twitter-toast-bar [message]="error.getValue()" [status]="'failure'" [duration]="1" *ngIf="_error | async"></twitter-toast-bar>
+</div>

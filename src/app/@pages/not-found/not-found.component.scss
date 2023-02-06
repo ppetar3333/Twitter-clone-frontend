@@ -1,0 +1,42 @@
+@import "../../../sources/abstract/mixins";
+
+.not-found,
+.not-found__wrapper,
+.not-found__info {
+  @include center-flex-box;
+  height: 100%;
+}
+
+.not-found__info {
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+.not-found__info-wrapper {
+  text-align: center;
+  padding: 40px;
+}
+
+.not-found__logo-wrapper {
+  text-align: center;
+}
+
+.not-found__btn {
+  color: black;
+  background: #1da1f2;
+  padding: 13px 70px;
+  border-radius: 7px;
+  font-size: 17px;
+  margin-top: 50px;
+  font-weight: bold;
+  transition: 0.4s all ease-in-out;
+  border: 1px solid black;
+}
+
+.not-found__btn:hover {
+  color: white;
+  transition: 0.4s all ease-in-out;
+  background: rgb(0, 0, 0);
+  border: 1px solid #1da1f2;
+}

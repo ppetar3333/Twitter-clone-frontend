@@ -1,0 +1,69 @@
+<div class="login" [ngClass]="{'fade-in' : isLoading}">
+    <div class="login__wrapper">
+        <div class="login__logo-wrapper">
+            <div class="login__logo">
+                <img class="login__logo-img" src="../../../assets/images/background-login.png" alt="">
+                <div class="login__logo-absolute">
+                    <img class="login__logo-absolute-img" src="../../../assets/images/icons8-twitter-500.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="login__content-wrapper">
+            <div class="login__form-wrapper">
+                <div class="login__form">
+                    <div class="login__content-logo">
+                        <img class="login__content-logo-img" src="../../../assets/logo/twitter-logo.png" alt="">
+                    </div>
+                    <div class="login__heading-wrapper">
+                        <h3 class="login__heading">Happening now</h3>
+                    </div>
+                    <div class="login__info-wrapper">
+                        <h5 class="login__info">Join Twitter Today.</h5>
+                    </div>
+                    <div class="login__data">
+                        <div class="login__input">
+                            <mat-twitter-input
+                                [label]="'Username'"
+                                [placeholder]="'Username'"
+                                [input]="true"
+                                (valueChange)="getUsername($event)"
+                                [required]="true"
+                                [textarea]="false">
+                            </mat-twitter-input>
+                        </div>
+                        <div class="login__input">
+                            <mat-twitter-input
+                                [label]="'Password'"
+                                [placeholder]="'Password'"
+                                [input]="true"
+                                [required]="true"
+                                (valueChange)="getPassword($event)"
+                                [type]="'password'"
+                                [textarea]="false">
+                            </mat-twitter-input>
+                        </div>
+                        <div class="login__btn-wrapper">
+                            <button class="login__btn" (click)="signIn()"  [disabled]="!enableSave()" [ngClass]="{ 'disabled-btn' : !enableSave()}">Sign in</button>
+                        </div>
+                        <div class="login__recovery">
+                            <p (click)="redirectUserToRecovery()" class="login__recovery-info">Forgot password? Do recovery.</p>
+                        </div>
+                        <div class="login__register">
+                            <div class="login__reigster-wrapper">
+                                <div class="login__register-info-wrapper">
+                                    <p class="login__register-info">Don't have account?</p>
+                                    <p class="login__register-info" style="float: right;">Want to verify account?</p>
+                                </div>
+                                <div class="login__actions">
+                                    <button class="login__register-btn" type="button" (click)="redirectToRegister()">Sign up</button>
+                                    <button class="login__register-btn" type="button" (click)="verifyAccount()">Verify</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <twitter-toast-bar [message]="error.getValue()" [status]="'failure'" [duration]="1" *ngIf="_error | async"></twitter-toast-bar>
+</div>

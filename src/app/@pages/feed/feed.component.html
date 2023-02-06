@@ -1,0 +1,38 @@
+<div class="feed">
+    <div class="feed__header">
+        <twitter-header></twitter-header>
+    </div>  
+    <div class="feed__container container">
+        <div class="feed__spinner spinner" *ngIf="isLoading"></div>
+        <div *ngIf="!isLoading">
+            <div class="feed__user-recommend">
+                <twitter-recommendation [recommendationsList]="recommendationsList"></twitter-recommendation>
+                <div class="feed__requests">
+                    <twitter-user-requests></twitter-user-requests>
+                </div>
+                <div class="feed__search">
+                    <twitter-search></twitter-search>
+                </div>
+            </div>
+            <div class="feed__content">
+                <div class="feed__create-post">
+                    <twitter-create-post (postCreated)="isPostCreated($event)"></twitter-create-post>
+                </div>
+                <ng-container *ngIf="tweetsList">
+                    <div class="feed__posts" *ngFor="let tweet of tweetsList">
+                        <twitter-post [tweet]="tweet" (retweeted)="isRetweeted($event)" (isLiked)="isLiked($event)"></twitter-post>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!tweetsList">
+                    <p class="feed__no-following-message">There are currently no tweets, create a tweet or connect with someone to see theirs tweets.</p>
+                </ng-container>
+            </div>
+            <div class="feed__tweet-recommend">
+                <twitter-tweet-recommend></twitter-tweet-recommend>
+            </div>
+        </div>
+    </div>
+    <div class="feed__footer">
+        <twitter-footer></twitter-footer>
+    </div>
+</div>

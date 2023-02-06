@@ -1,0 +1,89 @@
+@import "../../../../sources/abstract/mixins";
+
+.user-profile__followers-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 30px 0px 30px;
+}
+
+.user-profile__followers {
+  font-weight: bold;
+  position: relative;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s all ease-in-out;
+  color: #136da5;
+  opacity: 0.7;
+}
+
+.user-profile__followers:after {
+  content: "";
+  background: gray;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 78px;
+}
+
+.user-profile__followers:hover {
+  transition: 0.3s all ease-in-out;
+  opacity: 1;
+}
+
+.user-profile__heading {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 40px 0 20px 0;
+  letter-spacing: 2px;
+}
+
+.user-profile__btn {
+  padding: 7px 20px;
+  background: #0d5582;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: 0.3s all ease-in-out;
+}
+
+.user-profile__btn:hover {
+  transition: 0.3s all ease-in-out;
+  color: #0d5582;
+  background: white;
+  border: 1px solid #0d5582;
+}
+
+.user-profile__status {
+  padding-top: 80px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-evenly;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.profile-content__not-logged-in {
+  margin-top: 80px;
+}
+
+.profile-content__logged-in {
+  width: 550px;
+}
+
+.space-top {
+  margin-top: 100px;
+}
+
+.profile-content__no-following-message {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 2px;
+  max-width: 550px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 50px;
+}

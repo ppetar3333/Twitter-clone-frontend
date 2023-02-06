@@ -1,0 +1,55 @@
+<div class="user-profile">
+    <div class="user__header">
+        <twitter-header></twitter-header>
+    </div>
+    <div class="user-profile__container">
+        <div class="user-profile__spinner spinner" *ngIf="isLoading"></div>
+        <div *ngIf="!isLoading">
+            <div class="user-profile__container-wrapper">
+                <div class="user-profile__wrapper container">
+                    <div class="user-profile__avatar-wrapper">
+                        <div class="user-profile__avatar-img-wrapper">
+                            <img class="user-profile__avatar-img" src="../../../assets/images/avatar.png" alt="">
+                            <div class="user-profile__follow-wrapper" *ngIf="!isLoggedIn">
+                                <button class="user-profile-btn" type="button" *ngIf="!followStatus && !userProfile.privateProfile" (click)="follow()">
+                                    <span *ngIf="!isLoadingFollow">Follow</span>
+                                    <span *ngIf="isLoadingFollow">Loading...</span>
+                                </button>
+                                <button class="user-profile-btn" type="button" *ngIf="followStatus === 'FOLLOW'" (click)="unfollow()">
+                                    <span *ngIf="!isLoadingUnfollow">Unfollow</span>
+                                    <span *ngIf="isLoadingUnfollow">Loading...</span>
+                                </button>
+                                <button class="user-profile-btn" type="button" *ngIf="userProfile.privateProfile && followStatus !== 'FOLLOW_REQUEST' && followStatus !== 'FOLLOW'" (click)="sendRequest()">
+                                    <span *ngIf="!isLoadingRequest">Send Request</span>
+                                    <span *ngIf="isLoadingRequest">Loading...</span>
+                                </button>
+                                <button class="user-profile-btn disabled-btn" type="button" *ngIf="followStatus === 'FOLLOW_REQUEST'">Pending</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="!isLoggedIn">
+                        <div class="user-profile__content-wrapper" *ngIf="!userProfile.privateProfile">
+                            <twitter-profile-content [isLoggedIn]="isLoggedIn" [tweetsList]="tweetsList" (isLiked)="isLiked($event)" (isRetweeted)="isRetweeted($event)"></twitter-profile-content>
+                        </div>
+                        <div class="user-profile__content-wrapper" *ngIf="userProfile.privateProfile">
+                            <div class="user-profile__private-wrapper" *ngIf="followStatus != 'FOLLOW'">
+                                <p class="user-profile__private">Profile is private, follow user to see his content</p>
+                            </div>
+                            <div class="" *ngIf="followStatus === 'FOLLOW'">
+                                <twitter-profile-content [isLoggedIn]="isLoggedIn" [tweetsList]="tweetsList" (isLiked)="isLiked($event)" (isRetweeted)="isRetweeted($event)"></twitter-profile-content>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="isLoggedIn">
+                        <div class="user-profile__content-wrapper">
+                            <twitter-profile-content [isLoggedIn]="isLoggedIn" [tweetsList]="tweetsList" (isLiked)="isLiked($event)" (isRetweeted)="isRetweeted($event)"></twitter-profile-content>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="user__footer">
+        <twitter-footer></twitter-footer>
+    </div>
+</div>

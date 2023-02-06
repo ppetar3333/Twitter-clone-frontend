@@ -1,0 +1,12 @@
+<div class="header">
+    <div class="header__wrapper">
+        <div class="header__content">
+            <div class="header__logo-wrapper" (click)="redirectUserToHome()">
+                <img class="header__logo" src="../../../assets/images/icons8-twitter-500.png" alt="">
+            </div>
+            <div class="header__nav" *ngIf="!disableNav">
+                <twitter-nav></twitter-nav>
+            </div>
+        </div>
+    </div>
+</div>

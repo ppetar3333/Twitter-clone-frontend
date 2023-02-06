@@ -1,0 +1,31 @@
+<div class="search">
+    <div class="search__container">
+        <div class="search__content-wrapper">
+            <mat-form-field class="search__form" appearance="fill">
+                <mat-label class="search__label">Search user by name or username </mat-label>
+                <input class="search__input" [(ngModel)]="searchText"  matInput placeholder="Search user by name or username" type="search">
+                <mat-icon class="search__icon" matSuffix>search</mat-icon>
+            </mat-form-field>
+            <div class="search__result" *ngIf="searchText">
+                <div class="search__result-container" *ngFor="let user of users | searchFilter:searchText">
+                    <div class="search__result-wrapper" (click)="redirectToProfilePage(user.id)">
+                        <span class="search__avatar">
+                            <img class="search__avatar-img" src="../../../assets/images/avatar.png" alt="Avatar Image" />
+                        </span>
+                        <div class="search__user-info">
+                            <span class="search__name" *ngIf="user.firstname">
+                                {{ user.firstname }} {{ user.lastname }}
+                            </span>
+                            <span class="search__name" *ngIf="user.company">
+                                {{ user.company }}
+                            </span>
+                            <span class="search__username">
+                                {{ user.username }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

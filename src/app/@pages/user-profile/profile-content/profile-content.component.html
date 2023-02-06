@@ -1,0 +1,159 @@
+<div class="profile-content">
+    <div class="profile-content__wrapper">
+        <div class="profile-content__container">
+            <div class="profile-content__logged-in" *ngIf="user?.role?.toLowerCase().includes('regular')">
+                <div class="user-profile__followers-wrapper">
+                    <p class="user-profile__followers" (click)="showFollowing()">Following</p>
+                    <p class="user-profile__followers" (click)="showFollowers()">Followers</p>
+                </div>
+                <div class="user-profile__input user-profile__status" *ngIf="loggedInUser">
+                    Change profile status in <button type="button" class="user-profile__btn" (click)="changeProfileVisibility()">{{ user.privateProfile ? 'Public' : 'Private' }}</button>
+                </div>
+                <div class="user-profile__input" [ngClass]="{ 'space-top' : !loggedInUser}">
+                    <mat-twitter-input
+                        [label]="'Profile Status'"
+                        [value]="user.privateProfile ? 'Private' : 'Public'"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Username'"
+                        [value]="user.username"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Email'"
+                        [value]="user.email"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'City'"
+                        [value]="user.city"
+                        [disabled]="true"
+                        [input]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Name'"
+                        [value]="user.firstname"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Surname'"
+                        [value]="user.lastname"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Gender'"
+                        [value]="user.gender"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Age'"
+                        [value]="user.age"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+            </div>
+            <div class="profile-content__logged-in" *ngIf="user?.role?.toLowerCase().includes('business')">
+                <div class="user-profile__followers-wrapper">
+                    <p class="user-profile__followers" (click)="showFollowing()">Following</p>
+                    <p class="user-profile__followers" (click)="showFollowers()">Followers</p>
+                </div>
+                <div class="user-profile__input user-profile__status" *ngIf="loggedInUser">
+                    Change profile status in <button type="button" class="user-profile__btn" (click)="changeProfileVisibility()">{{ user.privateProfile ? 'Public' : 'Private' }}</button>
+                </div>
+                <div class="user-profile__input" [ngClass]="{ 'space-top' : !loggedInUser}">
+                    <mat-twitter-input
+                        [label]="'Profile Status'"
+                        [value]="user.privateProfile ? 'Private' : 'Public'"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Email'"
+                        [value]="user.email"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Username'"
+                        [value]="user.username"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Company Name'"
+                        [value]="user.company"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+                <div class="user-profile__input">
+                    <mat-twitter-input
+                        [label]="'Website'"
+                        [value]="user.website"
+                        [input]="true"
+                        [disabled]="true"
+                        [textarea]="false">
+                    </mat-twitter-input>
+                </div>
+            </div>
+            <div class="user-profile__posts">
+                <div class="user-profile__heading-wrapper" *ngIf="loggedInUser">
+                    <h4 class="user-profile__heading">Your Tweets</h4>
+                </div>
+                <div class="user-profile__heading-wrapper" *ngIf="!loggedInUser">
+                    <h4 class="user-profile__heading">Tweets From User</h4>
+                </div>
+                <div class="">
+                    <ng-container *ngIf="tweetsList">
+                        <div class="profile-content__posts" *ngFor="let tweet of tweetsList">
+                            <twitter-post [tweet]="tweet" (retweeted)="isRetweetHappened($event)" (isLiked)="isLikedHappened($event)"></twitter-post>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!tweetsList">
+                        <p class="profile-content__no-following-message">There are currently no tweets to show.</p>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

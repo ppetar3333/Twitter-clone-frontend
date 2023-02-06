@@ -1,0 +1,28 @@
+<div class="dialog-message">
+    <div class="dialog-message__body-wrapper" mat-dialog-content>
+        <div class="dialog-message__spinner " *ngIf="isLoading">Just a second...</div>
+        <div class="" *ngIf="!isLoading">
+            <div class="dialog-message__no-data-wrapper" *ngIf="requestsList.length === 0">
+                <p class="dialog-message__no-data">No follow requests for now.</p>
+            </div>
+            <div class="" *ngIf="requestsList.length > 0">
+                <div class="dialog-message__body" *ngFor="let user of requestsList">
+                    <div class="flex">
+                        <img class="dialog-message__avatar" src="../../../../assets/images/avatar.png" alt="">
+                        <div class="dialog-message__info">
+                            <p class="dialog-message__text">{{ user.name }}</p>
+                            <p class="dialog-message__text">{{ user.username }}</p>
+                        </div>
+                    </div>
+                    <div class="dialog-message__actions-wrapper">
+                        <img class="dialog-message__action-img" src="../../../../assets/images/accept.png" (click)="acceptRequest(user)" >
+                        <img class="dialog-message__action-img" src="../../../../assets/images/decline.png" (click)="declineRequest(user)" >
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-message__btn-wrapper">
+                <button class="dialog-message__btn" type="button" (click)="closeDialog()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

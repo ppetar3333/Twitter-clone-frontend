@@ -1,0 +1,152 @@
+@import "../../../sources/abstract/mixins";
+
+.verify .verify__wrapper {
+  @include center-flex-box;
+}
+
+.verify {
+  width: 100%;
+  opacity: 0.1;
+  transition: 0.8s all ease-in-out;
+  position: relative;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: 0.8s all ease-in-out;
+}
+
+.verify__logo {
+  position: relative;
+}
+
+.verify__logo-absolute {
+  @include center-absolute;
+}
+
+.verify__logo-absolute-img {
+  width: 400px;
+  max-width: 100%;
+}
+
+.verify__logo-wrapper,
+.verify__content-wrapper {
+  height: 100vh;
+}
+
+.verify__logo-wrapper {
+  width: 55%;
+}
+
+.verify__content-wrapper {
+  width: 45%;
+}
+
+.verify__logo-img {
+  width: 100%;
+  min-height: 900px;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.verify__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.verify__content-logo-img {
+  width: 100px;
+  margin-left: -15px;
+}
+
+.verify__form {
+  padding: 50px 60px 0px 50px;
+}
+
+.verify__heading {
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  margin: 20px 0;
+
+  @media (max-width: 1100px) {
+    font-size: 25px;
+    letter-spacing: 7px;
+  }
+}
+
+.verify__heading-wrapper {
+  margin: 70px 0;
+}
+
+.verify__info {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.verify__btn {
+  width: 100%;
+  padding: 14px 0;
+  background: rgb(145, 145, 145);
+  color: #103c57;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 17px;
+  border: 1px solid #0d5582;
+  border-radius: 5px;
+  transition: 0.3s all ease-in-out;
+  max-width: 500px;
+  font-weight: bold;
+}
+
+.verify__btn:hover {
+  transition: 0.3s all ease-in-out;
+  color: white;
+  background: #0d5582;
+  border: 1px solid white;
+}
+
+.disabled-btn {
+  pointer-events: none;
+  opacity: 0.3;
+  transition: 0.2s all ease-in-out;
+}
+
+.verify__register-info {
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+.verify__register-btn {
+  width: 100%;
+  padding: 17px 0;
+  background: #0d5582;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 17px;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: 0.3s all ease-in-out;
+  max-width: 500px;
+}
+
+.verify__register-btn:hover {
+  transition: 0.3s all ease-in-out;
+  color: #0d5582;
+  font-weight: bold;
+  background: white;
+  border: 1px solid #0d5582;
+  letter-spacing: 12px;
+}
+
+.verify__register-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  width: 100%;
+}

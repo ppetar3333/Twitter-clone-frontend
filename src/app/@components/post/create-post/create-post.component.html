@@ -1,0 +1,36 @@
+<div class="create-post">
+    <div class="create-post__wrapper">
+        <div class="create-post__container">
+            <div class="create-post__user-wrapper">
+                <div class="create-post__user">
+                    <span class="create-post__avatar">
+                        <img class="create-post__avatar-img" src="../../../assets/images/avatar.png" alt="Avatar Image" />
+                    </span>
+                    <div class="create-post__user-info">
+                        <span class="create-post__name" *ngIf="firstname && lastname">
+                            {{ firstname }} {{ lastname }}
+                        </span>
+                        <span class="create-post__name" *ngIf="company">
+                            {{ company }}
+                        </span>
+                        <span class="create-post__username">
+                            {{ username }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="create-post__content-wrapper">
+                <mat-twitter-input
+                    [label]="'Tweet Description'"
+                    [textarea]="true"
+                    [input]="false"
+                    [placeholder]="'What is happening?'"
+                    (valueChange)="getTweetDesc($event)">
+                </mat-twitter-input>
+                <div class="create-post__actions-wrapper">
+                    <button class="create-post__btn" type="button" (click)="createTweet()" [disabled]="!enableSave()" [ngClass]="{ 'disabled-btn' : !enableSave()}">Tweet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<section class="post">
+    <div class="post__wrapper" [ngStyle]="{'width' : tweetWidth + 'px'}">
+        <div class="post__content-wrapper">
+            <div class="post__user-wrapper">
+                <div class="post__user-left" (click)="goToUserProfile(tweet.user.id)">
+                    <span class="post__avatar">
+                        <img class="post__avatar-img" src="../../../assets/images/avatar.png" alt="Avatar Image" />
+                    </span>
+                    <div class="post__user-info">
+                        <span class="post__name">
+                            {{ tweet.user.name }}
+                            <span class="post__time">
+                                [ Posted {{ tweet.createdAt | dateAgo }} ]
+                            </span>
+                        </span>
+                        <span class="post__username">
+                            {{ tweet.user.username }}
+                        </span>
+                    </div>
+                </div>
+                <div class="post__user-right" *ngIf="tweet?.tweet?.user?.id === ''">
+                    <span class="post__wrapper-right" (click)="retweet(tweet)" *ngIf="loggedInUser?.id != tweet.user.id">
+                        <span class="post__time">
+                            <img class="post__retweet-img" src="../../../assets/images/retweet.png" alt="">
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="post__info-wrapper">
+                <span class="post__desc" *ngIf="tweet.text">
+                    {{ tweet.text }}
+                </span>
+                <span class="post__private" *ngIf="!tweet.text">
+                    <img class="post__private-img" src="../../../assets/images/lock.png" alt="Lock">
+                </span>
+                <div class="post__retweet" *ngIf="tweet?.tweet?.user?.name">
+                    <div class="retweet" [ngClass]="{ 'private-retweet' : tweet.tweet.text === '' }">
+                        <twitter-post [tweet]="tweet.tweet" [tweetWidth]="464" (isLiked)="reaction($event)" (retweeted)="reaction($event)"></twitter-post>
+                    </div>
+                </div>
+                <div class="post__vote-content" *ngIf="tweet.text">
+                    <div class="post__vote-wrapper">
+                        <img class="post__vote-img" src="../../../assets/images/like.png" alt="Like" (click)="likePost(tweet)">
+                        <span class="pots__vote-count">
+                            {{ tweet?.likes?.length ? tweet.likes.length : 0 }}
+                        </span>
+                        <img class="post__vote-likes" src="../../../assets/images/list.png" alt="List" (click)="showLikes(tweet)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

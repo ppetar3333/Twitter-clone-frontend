@@ -1,0 +1,33 @@
+<div class="nav">
+    <button class="hamburger hamburger--spin" type="button" (click)="toggleCollapse()">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+    </button>
+    <div class="nav__content-wrapper">
+        <div class="nav__content" [@collapse]="collapse">
+            <div class="nav__content-data">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <button type="button" class="nav__link draw meet" (click)="redirectUser('home')">Home</button>
+                    </li>
+                </ul>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <button type="button" class="nav__link draw meet" (click)="redirectUser('user-profile')">Profile</button>
+                    </li>
+                </ul>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <button type="button" class="nav__link draw meet" (click)="redirectUser('change-password')">Change Password</button>
+                    </li>
+                </ul>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <button type="button" class="nav__link draw meet" (click)="redirectUser('logout')">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

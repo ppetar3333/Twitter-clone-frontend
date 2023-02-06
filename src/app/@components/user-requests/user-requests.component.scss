@@ -1,0 +1,25 @@
+@import "../../../sources/abstract/mixins";
+
+.requests__btn {
+  width: 97%;
+  padding: 10px;
+  color: white;
+  background: #1da1f2;
+  border: 1px solid rgb(129, 128, 128);
+  transition: 0.3s all ease-in-out;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.requests__btn:hover {
+  color: #094a73;
+  background: white;
+  transition: 0.3s all ease-in-out;
+}
+
+.requests__wrapper {
+  text-align: center;
+  width: 100%;
+}

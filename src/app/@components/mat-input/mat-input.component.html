@@ -1,0 +1,60 @@
+<form class="form">
+  <mat-form-field class="form-full-width" appearance="fill">
+    <mat-label>{{ label }}</mat-label>
+    <div class="" *ngIf="textarea && !input && !numberType  && !dropdown">
+        <textarea 
+            matInput 
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [required]="required"
+            [value]="value"
+            (keyup)="onUserInput($event)"
+        ></textarea>
+    </div>
+    <div class="" *ngIf="numberType && !textarea && !input  && !dropdown">
+      <input 
+        matInput 
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [type]="type"
+        digitOnly
+        [required]="required"
+        [value]="value"
+        (keyup)="onUserInput($event)"
+    />
+    </div>
+    <div class="" *ngIf="dropdown && !numberType && !textarea && !input">
+      <mat-select
+        (selectionChange)="onUserInput($event)"
+        [disabled]="disabled"
+        [required]="required">
+        <mat-option class="not-empty-select" style="color: white;" *ngFor="let item of dropdownItems" [value]="item">
+          {{ item }}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div class="" *ngIf="input && !textarea && !numberType && !dropdown && !onlyLetter">
+        <input 
+            matInput 
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [type]="type"
+            [required]="required"
+            [value]="value"
+            (keyup)="onUserInput($event)"
+        />
+    </div>
+    <div class="" *ngIf="onlyLetter ">
+      <input 
+          letterOnly
+          matInput 
+          [placeholder]="placeholder"
+          [disabled]="disabled"
+          [type]="type"
+          [required]="required"
+          [value]="value"
+          (keyup)="onUserInput($event)"
+      />
+    </div>
+  </mat-form-field>
+</form>
